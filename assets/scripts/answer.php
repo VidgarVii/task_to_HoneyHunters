@@ -15,7 +15,7 @@ foreach ($res_comment as $res){
     
   if ( $i>$check ){
       
-    $six_comm[] = array('name'=>$res['name'], 'email'=>$res['email'], 'comment:' => $res['comment']);
+    $six_comm[] = array('name'=>$res['name'], 'email'=>$res['email'], 'comment' => $res['comment']);
       
 }}
 

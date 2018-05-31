@@ -15,6 +15,9 @@ $( "#form" ).on( "submit", function( event ) {
                 //console.log(evt[5]['name']);
                 reset();
                 alert('Ваш комментарий записан');
+                $('#name').val('');
+                $('#email').val('');
+                $('textarea').val('');
              
 
          }
@@ -32,6 +35,8 @@ $.get({
     dataType: 'json',
     success: function(evt){
         
+   
+        
         $('.output_blog-green').remove();
         $('.output_blog-grey').remove();
         
@@ -44,16 +49,17 @@ $.get({
               grey(evt[i]['name'], evt[i]['email'], evt[i]['comment']);
             }  
           i++; 
-        } while (evt.length >= i)
+        } while (evt.length >= i);
         
     }
-})
+});
 }
 
+      
 function green (name, email, comment) {
-     $('.output_comments').append('<div class="output_blog-green"><p class="output_name-green">' + name + '</p><p class="output_mail-green">' + email + '</p><p class="output_cmnt-green">'  + comment + '</p><div>')
+     $('.output_comments').append('<div class="output_blog-green"><p class="output_name-green">' + name + '</p><p class="output_mail-green">' + email + '</p><p class="output_cmnt-green">' + comment + '</p><div>')
 }
 
 function grey (name, email, comment) {
-     $('.output_comments').append('<div class="output_blog-grey"><p class="output_name-grey">' + name + '</p><p class="output_mail-grey">'  + email + '</p><p class="output_cmnt-grey">'  + comment + '</p><div>')
+     $('.output_comments').append('<div class="output_blog-grey"><p class="output_name-grey">' + name + '</p><p class="output_mail-grey">'  + email + '</p><p class="output_cmnt-grey">' + comment + '</p><div>')
 }
